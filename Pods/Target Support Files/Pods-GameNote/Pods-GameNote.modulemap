@@ -1,0 +1,6 @@
+framework module Pods_GameNote {
+  umbrella header "Pods-GameNote-umbrella.h"
+
+  export *
+  module * { export * }
+}

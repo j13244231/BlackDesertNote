@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		880142721F0101EC003B3977 /* CookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880142711F0101EC003B3977 /* CookingTableViewCell.swift */; };
+		880142741F010385003B3977 /* CookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880142731F010385003B3977 /* CookingTableViewController.swift */; };
+		880142761F010570003B3977 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880142751F010570003B3977 /* Dish.swift */; };
+		880142781F03EBA0003B3977 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 880142771F03EBA0003B3977 /* GoogleService-Info.plist */; };
+		8858E7631F079E2F00A016F5 /* CookingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858E7621F079E2F00A016F5 /* CookingDetailViewController.swift */; };
+		8858E7651F07AA0500A016F5 /* DishDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858E7641F07AA0500A016F5 /* DishDetailTableViewCell.swift */; };
+		8858E7691F07B70800A016F5 /* DoneAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8858E7681F07B70800A016F5 /* DoneAccessoryView.swift */; };
+		888880D91ED4B3BF00E09D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888880D81ED4B3BF00E09D4A /* AppDelegate.swift */; };
+		888880DB1ED4B3BF00E09D4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888880DA1ED4B3BF00E09D4A /* ViewController.swift */; };
+		888880DE1ED4B3BF00E09D4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888880DC1ED4B3BF00E09D4A /* Main.storyboard */; };
+		888880E01ED4B3BF00E09D4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888880DF1ED4B3BF00E09D4A /* Assets.xcassets */; };
+		888880E31ED4B3BF00E09D4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888880E11ED4B3BF00E09D4A /* LaunchScreen.storyboard */; };
+		888880EE1ED4B3C000E09D4A /* GameNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888880ED1ED4B3C000E09D4A /* GameNoteTests.swift */; };
+		88C7F0F71F1B714A0052C310 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7F0F61F1B714A0052C310 /* Reachability.swift */; };
+		EC794DFF34B0AD3FF76DE16E /* Pods_GameNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84EB315F24C31413A85E4B3 /* Pods_GameNote.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		888880EA1ED4B3C000E09D4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 888880CD1ED4B3BF00E09D4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 888880D41ED4B3BF00E09D4A;
+			remoteInfo = GameNote;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B275183CCE25D49C341B3A8 /* Pods-GameNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameNote/Pods-GameNote.debug.xcconfig"; sourceTree = "<group>"; };
+		45A0E382AC8B30BF4C814BCD /* Pods-GameNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameNote.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameNote/Pods-GameNote.release.xcconfig"; sourceTree = "<group>"; };
+		880142711F0101EC003B3977 /* CookingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingTableViewCell.swift; sourceTree = "<group>"; };
+		880142731F010385003B3977 /* CookingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingTableViewController.swift; sourceTree = "<group>"; };
+		880142751F010570003B3977 /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		880142771F03EBA0003B3977 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8858E7621F079E2F00A016F5 /* CookingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookingDetailViewController.swift; sourceTree = "<group>"; };
+		8858E7641F07AA0500A016F5 /* DishDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishDetailTableViewCell.swift; sourceTree = "<group>"; };
+		8858E7681F07B70800A016F5 /* DoneAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneAccessoryView.swift; sourceTree = "<group>"; };
+		888880D51ED4B3BF00E09D4A /* GameNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		888880D81ED4B3BF00E09D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		888880DA1ED4B3BF00E09D4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		888880DD1ED4B3BF00E09D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		888880DF1ED4B3BF00E09D4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		888880E21ED4B3BF00E09D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		888880E41ED4B3BF00E09D4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		888880E91ED4B3C000E09D4A /* GameNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		888880ED1ED4B3C000E09D4A /* GameNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNoteTests.swift; sourceTree = "<group>"; };
+		888880EF1ED4B3C000E09D4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88C7F0F61F1B714A0052C310 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F84EB315F24C31413A85E4B3 /* Pods_GameNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		888880D21ED4B3BF00E09D4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC794DFF34B0AD3FF76DE16E /* Pods_GameNote.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		888880E61ED4B3C000E09D4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3CC7B05769E785A20DA0EBB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B275183CCE25D49C341B3A8 /* Pods-GameNote.debug.xcconfig */,
+				45A0E382AC8B30BF4C814BCD /* Pods-GameNote.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		59EFD82960B856BD52E95C73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F84EB315F24C31413A85E4B3 /* Pods_GameNote.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8858E7661F07AA1600A016F5 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				880142711F0101EC003B3977 /* CookingTableViewCell.swift */,
+				8858E7641F07AA0500A016F5 /* DishDetailTableViewCell.swift */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		8858E7671F07ABA400A016F5 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				880142751F010570003B3977 /* Dish.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		888880CC1ED4B3BF00E09D4A = {
+			isa = PBXGroup;
+			children = (
+				888880D71ED4B3BF00E09D4A /* GameNote */,
+				888880EC1ED4B3C000E09D4A /* GameNoteTests */,
+				888880D61ED4B3BF00E09D4A /* Products */,
+				3CC7B05769E785A20DA0EBB1 /* Pods */,
+				59EFD82960B856BD52E95C73 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		888880D61ED4B3BF00E09D4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				888880D51ED4B3BF00E09D4A /* GameNote.app */,
+				888880E91ED4B3C000E09D4A /* GameNoteTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		888880D71ED4B3BF00E09D4A /* GameNote */ = {
+			isa = PBXGroup;
+			children = (
+				888880D81ED4B3BF00E09D4A /* AppDelegate.swift */,
+				888880DA1ED4B3BF00E09D4A /* ViewController.swift */,
+				888880DC1ED4B3BF00E09D4A /* Main.storyboard */,
+				880142731F010385003B3977 /* CookingTableViewController.swift */,
+				8858E7621F079E2F00A016F5 /* CookingDetailViewController.swift */,
+				8858E7681F07B70800A016F5 /* DoneAccessoryView.swift */,
+				88C7F0F61F1B714A0052C310 /* Reachability.swift */,
+				8858E7661F07AA1600A016F5 /* cell */,
+				8858E7671F07ABA400A016F5 /* model */,
+				888880DF1ED4B3BF00E09D4A /* Assets.xcassets */,
+				888880E11ED4B3BF00E09D4A /* LaunchScreen.storyboard */,
+				888880E41ED4B3BF00E09D4A /* Info.plist */,
+				880142771F03EBA0003B3977 /* GoogleService-Info.plist */,
+			);
+			path = GameNote;
+			sourceTree = "<group>";
+		};
+		888880EC1ED4B3C000E09D4A /* GameNoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				888880ED1ED4B3C000E09D4A /* GameNoteTests.swift */,
+				888880EF1ED4B3C000E09D4A /* Info.plist */,
+			);
+			path = GameNoteTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		888880D41ED4B3BF00E09D4A /* GameNote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 888880F21ED4B3C000E09D4A /* Build configuration list for PBXNativeTarget "GameNote" */;
+			buildPhases = (
+				A0E24EB7E34D68E935778E3A /* [CP] Check Pods Manifest.lock */,
+				888880D11ED4B3BF00E09D4A /* Sources */,
+				888880D21ED4B3BF00E09D4A /* Frameworks */,
+				888880D31ED4B3BF00E09D4A /* Resources */,
+				EE8D62F0F104B5AE96C50FF9 /* [CP] Embed Pods Frameworks */,
+				6FFCFFC25C8B48C35513B923 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameNote;
+			productName = GameNote;
+			productReference = 888880D51ED4B3BF00E09D4A /* GameNote.app */;
+			productType = "com.apple.product-type.application";
+		};
+		888880E81ED4B3C000E09D4A /* GameNoteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 888880F51ED4B3C000E09D4A /* Build configuration list for PBXNativeTarget "GameNoteTests" */;
+			buildPhases = (
+				888880E51ED4B3C000E09D4A /* Sources */,
+				888880E61ED4B3C000E09D4A /* Frameworks */,
+				888880E71ED4B3C000E09D4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				888880EB1ED4B3C000E09D4A /* PBXTargetDependency */,
+			);
+			name = GameNoteTests;
+			productName = GameNoteTests;
+			productReference = 888880E91ED4B3C000E09D4A /* GameNoteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		888880CD1ED4B3BF00E09D4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "劉進泰";
+				TargetAttributes = {
+					888880D41ED4B3BF00E09D4A = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 7Z6LP96HP8;
+						ProvisioningStyle = Automatic;
+					};
+					888880E81ED4B3C000E09D4A = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 7Z6LP96HP8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 888880D41ED4B3BF00E09D4A;
+					};
+				};
+			};
+			buildConfigurationList = 888880D01ED4B3BF00E09D4A /* Build configuration list for PBXProject "GameNote" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 888880CC1ED4B3BF00E09D4A;
+			productRefGroup = 888880D61ED4B3BF00E09D4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				888880D41ED4B3BF00E09D4A /* GameNote */,
+				888880E81ED4B3C000E09D4A /* GameNoteTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		888880D31ED4B3BF00E09D4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888880E31ED4B3BF00E09D4A /* LaunchScreen.storyboard in Resources */,
+				880142781F03EBA0003B3977 /* GoogleService-Info.plist in Resources */,
+				888880E01ED4B3BF00E09D4A /* Assets.xcassets in Resources */,
+				888880DE1ED4B3BF00E09D4A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		888880E71ED4B3C000E09D4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6FFCFFC25C8B48C35513B923 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameNote/Pods-GameNote-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0E24EB7E34D68E935778E3A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE8D62F0F104B5AE96C50FF9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameNote/Pods-GameNote-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		888880D11ED4B3BF00E09D4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				880142741F010385003B3977 /* CookingTableViewController.swift in Sources */,
+				8858E7651F07AA0500A016F5 /* DishDetailTableViewCell.swift in Sources */,
+				880142761F010570003B3977 /* Dish.swift in Sources */,
+				888880DB1ED4B3BF00E09D4A /* ViewController.swift in Sources */,
+				880142721F0101EC003B3977 /* CookingTableViewCell.swift in Sources */,
+				88C7F0F71F1B714A0052C310 /* Reachability.swift in Sources */,
+				8858E7631F079E2F00A016F5 /* CookingDetailViewController.swift in Sources */,
+				888880D91ED4B3BF00E09D4A /* AppDelegate.swift in Sources */,
+				8858E7691F07B70800A016F5 /* DoneAccessoryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		888880E51ED4B3C000E09D4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888880EE1ED4B3C000E09D4A /* GameNoteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		888880EB1ED4B3C000E09D4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 888880D41ED4B3BF00E09D4A /* GameNote */;
+			targetProxy = 888880EA1ED4B3C000E09D4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		888880DC1ED4B3BF00E09D4A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				888880DD1ED4B3BF00E09D4A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		888880E11ED4B3BF00E09D4A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				888880E21ED4B3BF00E09D4A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		888880F01ED4B3C000E09D4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		888880F11ED4B3C000E09D4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		888880F31ED4B3C000E09D4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B275183CCE25D49C341B3A8 /* Pods-GameNote.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7Z6LP96HP8;
+				INFOPLIST_FILE = GameNote/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JinTai.GameNote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		888880F41ED4B3C000E09D4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A0E382AC8B30BF4C814BCD /* Pods-GameNote.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7Z6LP96HP8;
+				INFOPLIST_FILE = GameNote/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JinTai.GameNote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		888880F61ED4B3C000E09D4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7Z6LP96HP8;
+				INFOPLIST_FILE = GameNoteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JinTai.GameNoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameNote.app/GameNote";
+			};
+			name = Debug;
+		};
+		888880F71ED4B3C000E09D4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7Z6LP96HP8;
+				INFOPLIST_FILE = GameNoteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JinTai.GameNoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameNote.app/GameNote";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		888880D01ED4B3BF00E09D4A /* Build configuration list for PBXProject "GameNote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888880F01ED4B3C000E09D4A /* Debug */,
+				888880F11ED4B3C000E09D4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		888880F21ED4B3C000E09D4A /* Build configuration list for PBXNativeTarget "GameNote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888880F31ED4B3C000E09D4A /* Debug */,
+				888880F41ED4B3C000E09D4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		888880F51ED4B3C000E09D4A /* Build configuration list for PBXNativeTarget "GameNoteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888880F61ED4B3C000E09D4A /* Debug */,
+				888880F71ED4B3C000E09D4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 888880CD1ED4B3BF00E09D4A /* Project object */;
+}
