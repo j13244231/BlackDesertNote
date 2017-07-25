@@ -22,24 +22,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg1-BN-BqU">
-                                <rect key="frame" x="111" y="347" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="煉金"/>
-                                <connections>
-                                    <action selector="AlchemyPageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2EE-OQ-y4j"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRK-yU-JQc">
-                                <rect key="frame" x="112" y="148" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="料理"/>
-                                <connections>
-                                    <action selector="cookingPageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yRg-To-tHW"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SOV-qK-Xmv">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRK-yU-JQc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <state key="normal" backgroundImage="CookingBG"/>
+                                        <connections>
+                                            <action selector="cookingPageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yRg-To-tHW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eg1-BN-BqU">
+                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
+                                        <state key="normal" backgroundImage="AlchemyBG"/>
+                                        <connections>
+                                            <action selector="AlchemyPageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2EE-OQ-y4j"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SOV-qK-Xmv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BHZ-ug-sqE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SOV-qK-Xmv" secondAttribute="bottom" id="ddw-G6-u6W"/>
+                            <constraint firstAttribute="trailing" secondItem="SOV-qK-Xmv" secondAttribute="trailing" id="shQ-Np-Xbp"/>
+                            <constraint firstItem="SOV-qK-Xmv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="veg-Fe-BQK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="材料需求筆記" id="YXF-9u-LwZ"/>
                     <connections>
@@ -50,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1075.3623188405797" y="138.58695652173915"/>
         </scene>
         <!--料理-->
         <scene sceneID="INc-YY-rfZ">
@@ -229,4 +238,8 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AlchemyBG" width="187" height="151"/>
+        <image name="CookingBG" width="187" height="151"/>
+    </resources>
 </document>
