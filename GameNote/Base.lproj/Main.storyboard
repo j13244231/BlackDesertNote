@@ -55,11 +55,77 @@
                         <outlet property="AlchemyPageButton" destination="eg1-BN-BqU" id="Cf4-cb-DVy"/>
                         <outlet property="CookingPageButton" destination="QRK-yU-JQc" id="9Mp-qu-edc"/>
                         <segue destination="8ti-xO-cOK" kind="show" identifier="showCookingPage" id="gOQ-lZ-mcF"/>
+                        <segue destination="jp0-wW-mEN" kind="show" identifier="showAlchemyPage" id="W84-vc-jkm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1075.3623188405797" y="138.58695652173915"/>
+        </scene>
+        <!--煉金-->
+        <scene sceneID="BV2-D8-dX7">
+            <objects>
+                <tableViewController id="jp0-wW-mEN" userLabel="煉金" customClass="AlchemyTableViewController" customModule="GameNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" id="UtI-Wo-rA1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlchemyTableViewCell" rowHeight="78" id="66d-ly-z53" customClass="AlchemyTableViewCell" customModule="GameNote" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="78"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="66d-ly-z53" id="5em-Of-Ng2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名稱：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdW-kf-xeJ">
+                                            <rect key="frame" x="8" y="8" width="231" height="61.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="231" id="dzb-99-c0h"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="難度" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvd-l3-0zJ">
+                                            <rect key="frame" x="249" y="8" width="116" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Xmj-O3-Qiv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="NdW-kf-xeJ" firstAttribute="top" secondItem="5em-Of-Ng2" secondAttribute="top" constant="8" id="XLM-Ek-QRD"/>
+                                        <constraint firstItem="fvd-l3-0zJ" firstAttribute="top" secondItem="5em-Of-Ng2" secondAttribute="top" constant="8" id="eEc-vR-bgL"/>
+                                        <constraint firstAttribute="bottom" secondItem="NdW-kf-xeJ" secondAttribute="bottom" constant="8" id="jAs-g2-ohd"/>
+                                        <constraint firstAttribute="trailing" secondItem="fvd-l3-0zJ" secondAttribute="trailing" constant="10" id="qwp-rA-3ky"/>
+                                        <constraint firstItem="fvd-l3-0zJ" firstAttribute="leading" secondItem="NdW-kf-xeJ" secondAttribute="trailing" constant="10" id="r6x-kl-mIb"/>
+                                        <constraint firstItem="NdW-kf-xeJ" firstAttribute="leading" secondItem="5em-Of-Ng2" secondAttribute="leading" constant="8" id="t7e-Ys-g00"/>
+                                        <constraint firstItem="fvd-l3-0zJ" firstAttribute="top" secondItem="5em-Of-Ng2" secondAttribute="topMargin" id="zsk-cZ-Smw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="difficultyLabel" destination="fvd-l3-0zJ" id="Fgw-zS-odo"/>
+                                    <outlet property="nameLabel" destination="NdW-kf-xeJ" id="bSB-xG-qCR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jp0-wW-mEN" id="Yy1-vY-8om"/>
+                            <outlet property="delegate" destination="jp0-wW-mEN" id="n7N-DH-xOK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="煉金" id="Qom-M1-mpU"/>
+                    <connections>
+                        <segue destination="bdU-ln-zlr" kind="show" identifier="showAlchemyDetail" id="WKR-1j-gJO"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OeU-p0-6tN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018.4000000000001" y="568.9655172413793"/>
         </scene>
         <!--料理-->
         <scene sceneID="INc-YY-rfZ">
@@ -87,8 +153,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="難度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-nc-T4k">
-                                            <rect key="frame" x="291" y="8" width="35" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="難度" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-nc-T4k">
+                                            <rect key="frame" x="249" y="8" width="108" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -96,9 +162,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="xEj-jc-9AX" firstAttribute="top" secondItem="fD5-nc-T4k" secondAttribute="top" id="4nO-50-yRB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fD5-nc-T4k" secondAttribute="trailing" constant="10" id="9Nx-Qe-OqB"/>
                                         <constraint firstItem="xEj-jc-9AX" firstAttribute="leading" secondItem="xkd-9x-qDc" secondAttribute="leadingMargin" id="TG4-L5-yZK"/>
                                         <constraint firstAttribute="bottom" secondItem="xEj-jc-9AX" secondAttribute="bottom" constant="8" id="fsP-1A-vN1"/>
-                                        <constraint firstItem="fD5-nc-T4k" firstAttribute="leading" secondItem="xEj-jc-9AX" secondAttribute="trailing" constant="52" id="nW2-lT-ZNI"/>
+                                        <constraint firstItem="fD5-nc-T4k" firstAttribute="leading" secondItem="xEj-jc-9AX" secondAttribute="trailing" constant="10" id="nW2-lT-ZNI"/>
                                         <constraint firstItem="xEj-jc-9AX" firstAttribute="top" secondItem="xkd-9x-qDc" secondAttribute="top" constant="8" id="pM7-vb-fji"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -124,7 +191,7 @@
             </objects>
             <point key="canvasLocation" x="2016.8" y="-152.47376311844079"/>
         </scene>
-        <!--Cooking Detail View Controller-->
+        <!--製作詳細-->
         <scene sceneID="VTC-bb-MjH">
             <objects>
                 <viewController id="i9u-1c-Wtr" customClass="CookingDetailViewController" customModule="GameNote" customModuleProvider="target" sceneMemberID="viewController">
@@ -208,6 +275,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="製作詳細" id="hZY-pq-cKL"/>
                     <connections>
                         <outlet property="amountTextField" destination="Llf-5n-kVe" id="Hpc-lr-NhF"/>
                         <outlet property="dishDifficultyLabel" destination="ejO-ze-rv6" id="tbU-JR-QbW"/>
@@ -236,6 +304,106 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNZ-g0-pgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--製作詳細-->
+        <scene sceneID="DaS-Ua-Kqw">
+            <objects>
+                <viewController id="bdU-ln-zlr" customClass="AlchemyDetailViewController" customModule="GameNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uYQ-h6-olk"/>
+                        <viewControllerLayoutGuide type="bottom" id="pYp-ij-6hK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gRO-Wd-xl3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我想製作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRj-PD-aiX">
+                                <rect key="frame" x="16" y="192" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pcg-CU-TCb">
+                                <rect key="frame" x="89" y="187" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tp-lU-oki">
+                                <rect key="frame" x="133" y="191" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="需要材料：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BD-lV-igw">
+                                <rect key="frame" x="16" y="240" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="製作需求最低等級：見習Lv.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goo-mk-y2V">
+                                <rect key="frame" x="16" y="130" width="239" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V7p-iP-mT3">
+                                <rect key="frame" x="15" y="269" width="344" height="390"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="eHE-Lv-x9a" customClass="AlchemyDetailTableViewCell" customModule="GameNote" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="344" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eHE-Lv-x9a" id="FEM-G2-Ryn">
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="材料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMy-tl-6dg">
+                                                    <rect key="frame" x="8" y="11" width="35" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="RMy-tl-6dg" secondAttribute="bottom" constant="3.5" id="AEw-fe-Xhs"/>
+                                                <constraint firstItem="RMy-tl-6dg" firstAttribute="leading" secondItem="FEM-G2-Ryn" secondAttribute="leadingMargin" id="GAh-1x-e8d"/>
+                                                <constraint firstItem="RMy-tl-6dg" firstAttribute="top" secondItem="FEM-G2-Ryn" secondAttribute="topMargin" constant="3" id="iwq-kn-Tio"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="materialLabel" destination="RMy-tl-6dg" id="3YW-Z8-b1i"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="煉金名稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkD-CG-0hw">
+                                <rect key="frame" x="16" y="72" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="製作詳細" id="Htq-GE-Uix"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="Pcg-CU-TCb" id="9f6-Ek-sKR"/>
+                        <outlet property="difficultyLabel" destination="goo-mk-y2V" id="IDP-FW-fqt"/>
+                        <outlet property="materialTableView" destination="V7p-iP-mT3" id="bxI-75-0rk"/>
+                        <outlet property="nameLabel" destination="xkD-CG-0hw" id="dSV-kb-f14"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D3g-FQ-ytw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2772" y="567.16641679160421"/>
         </scene>
     </scenes>
     <resources>

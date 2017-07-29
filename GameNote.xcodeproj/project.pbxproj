@@ -21,6 +21,11 @@
 		888880E31ED4B3BF00E09D4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888880E11ED4B3BF00E09D4A /* LaunchScreen.storyboard */; };
 		888880EE1ED4B3C000E09D4A /* GameNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888880ED1ED4B3C000E09D4A /* GameNoteTests.swift */; };
 		88C7F0F71F1B714A0052C310 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C7F0F61F1B714A0052C310 /* Reachability.swift */; };
+		88C901851F2AF5DA0031B20E /* AlchemyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C901841F2AF5DA0031B20E /* AlchemyTableViewController.swift */; };
+		88C901871F2AF6230031B20E /* Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C901861F2AF6230031B20E /* Alchemy.swift */; };
+		88C901891F2B0BB40031B20E /* AlchemyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C901881F2B0BB40031B20E /* AlchemyTableViewCell.swift */; };
+		88C9018B1F2B1A100031B20E /* AlchemyDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C9018A1F2B1A100031B20E /* AlchemyDetailTableViewCell.swift */; };
+		88C9018D1F2C19D00031B20E /* AlchemyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C9018C1F2C19D00031B20E /* AlchemyDetailViewController.swift */; };
 		EC794DFF34B0AD3FF76DE16E /* Pods_GameNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84EB315F24C31413A85E4B3 /* Pods_GameNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +60,11 @@
 		888880ED1ED4B3C000E09D4A /* GameNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNoteTests.swift; sourceTree = "<group>"; };
 		888880EF1ED4B3C000E09D4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88C7F0F61F1B714A0052C310 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		88C901841F2AF5DA0031B20E /* AlchemyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyTableViewController.swift; sourceTree = "<group>"; };
+		88C901861F2AF6230031B20E /* Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alchemy.swift; sourceTree = "<group>"; };
+		88C901881F2B0BB40031B20E /* AlchemyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyTableViewCell.swift; sourceTree = "<group>"; };
+		88C9018A1F2B1A100031B20E /* AlchemyDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyDetailTableViewCell.swift; sourceTree = "<group>"; };
+		88C9018C1F2C19D00031B20E /* AlchemyDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyDetailViewController.swift; sourceTree = "<group>"; };
 		F84EB315F24C31413A85E4B3 /* Pods_GameNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,7 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				880142711F0101EC003B3977 /* CookingTableViewCell.swift */,
+				88C901881F2B0BB40031B20E /* AlchemyTableViewCell.swift */,
 				8858E7641F07AA0500A016F5 /* DishDetailTableViewCell.swift */,
+				88C9018A1F2B1A100031B20E /* AlchemyDetailTableViewCell.swift */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -107,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				880142751F010570003B3977 /* Dish.swift */,
+				88C901861F2AF6230031B20E /* Alchemy.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -138,7 +151,9 @@
 				888880DA1ED4B3BF00E09D4A /* ViewController.swift */,
 				888880DC1ED4B3BF00E09D4A /* Main.storyboard */,
 				880142731F010385003B3977 /* CookingTableViewController.swift */,
+				88C901841F2AF5DA0031B20E /* AlchemyTableViewController.swift */,
 				8858E7621F079E2F00A016F5 /* CookingDetailViewController.swift */,
+				88C9018C1F2C19D00031B20E /* AlchemyDetailViewController.swift */,
 				8858E7681F07B70800A016F5 /* DoneAccessoryView.swift */,
 				88C7F0F61F1B714A0052C310 /* Reachability.swift */,
 				8858E7661F07AA1600A016F5 /* cell */,
@@ -320,12 +335,17 @@
 				880142741F010385003B3977 /* CookingTableViewController.swift in Sources */,
 				8858E7651F07AA0500A016F5 /* DishDetailTableViewCell.swift in Sources */,
 				880142761F010570003B3977 /* Dish.swift in Sources */,
+				88C901871F2AF6230031B20E /* Alchemy.swift in Sources */,
 				888880DB1ED4B3BF00E09D4A /* ViewController.swift in Sources */,
+				88C9018D1F2C19D00031B20E /* AlchemyDetailViewController.swift in Sources */,
+				88C901851F2AF5DA0031B20E /* AlchemyTableViewController.swift in Sources */,
+				88C9018B1F2B1A100031B20E /* AlchemyDetailTableViewCell.swift in Sources */,
 				880142721F0101EC003B3977 /* CookingTableViewCell.swift in Sources */,
 				88C7F0F71F1B714A0052C310 /* Reachability.swift in Sources */,
 				8858E7631F079E2F00A016F5 /* CookingDetailViewController.swift in Sources */,
 				888880D91ED4B3BF00E09D4A /* AppDelegate.swift in Sources */,
 				8858E7691F07B70800A016F5 /* DoneAccessoryView.swift in Sources */,
+				88C901891F2B0BB40031B20E /* AlchemyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

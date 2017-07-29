@@ -1,16 +1,16 @@
 //
-//  Dish.swift
+//  Alchemy.swift
 //  GameNote
 //
-//  Created by 劉進泰 on 2017/6/26.
+//  Created by 劉進泰 on 2017/7/28.
 //  Copyright © 2017年 劉進泰. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
-class Dish:NSObject, NSCoding {
-    private var _dishRef:DatabaseReference!
+class Alchemy:NSObject, NSCoding {
+    private var _alchemyRef:DatabaseReference!
     
     //MARK: Types
     struct PropertyKey {
@@ -20,29 +20,29 @@ class Dish:NSObject, NSCoding {
     
     //MARK: Archiving Paths
     static let DocumentsDirectory:URL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("dishs")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("alchemies")
     
-    private var _dishKey:String!
-    private var _dishName:String!
-    private var _dishDifficulty:String!
-    private var _dishMaterial:[String]!
+    private var _key:String!
+    private var _name:String!
+    private var _difficulty:String!
+    private var _material:[String]!
     private var _materialAmount:[Int]!
     private var _dictionary:Dictionary<String, AnyObject>!
     
-    var dishKey:String {
-        return _dishKey
+    var key:String {
+        return _key
     }
     
-    var dishName:String {
-        return _dishName
+    var name:String {
+        return _name
     }
     
-    var dishDifficulty:String {
-        return _dishDifficulty
+    var difficulty:String {
+        return _difficulty
     }
     
-    var dishMaterial:[String] {
-        return _dishMaterial
+    var material:[String] {
+        return _material
     }
     
     var materialAmount:[Int] {
@@ -54,43 +54,42 @@ class Dish:NSObject, NSCoding {
     }
     
     init(key:String, dictionary:Dictionary<String, AnyObject>) {
-        self._dishKey = key
+        self._key = key
         self._dictionary = dictionary
         
-        // 這邊的中文字是取決於 Firebase 的節點名稱
-        if let dishName = dictionary["名稱"] as? String {
-            self._dishName = dishName
+        if let name = dictionary["名稱"] as? String {
+            self._name = name
         }
         
-        if let dishDifficulty = dictionary["難度"] as? String {
-            self._dishDifficulty = dishDifficulty
+        if let difficulty = dictionary["難度"] as? String {
+            self._difficulty = difficulty
         }
         
-        if let dishMaterial = dictionary["材料"] as? [String] {
-            self._dishMaterial = dishMaterial
+        if let material = dictionary["材料"] as? [String] {
+            self._material = material
         }
         
         if let materialAmount = dictionary["材料數量"] as? [Int] {
             self._materialAmount = materialAmount
         }
         
-        self._dishRef = Database.database().reference().child("料理").child(key)
+        self._alchemyRef = Database.database().reference().child("煉金").child(key)
     }
     
     //MARK: NSCoding
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(dishKey, forKey: PropertyKey.key)
+        aCoder.encode(key, forKey: PropertyKey.key)
         aCoder.encode(dictionary, forKey: PropertyKey.dictionary)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let key = aDecoder.decodeObject(forKey: PropertyKey.key) as? String else {
-            print("解碼 key 失敗！(at:Dish.swift)")
+            print("解碼 key 失敗！(at:Alchemy.swift)")
             return nil
         }
         
         guard let dictionary = aDecoder.decodeObject(forKey: PropertyKey.dictionary) as? Dictionary<String, AnyObject> else {
-            print("解碼 dictionary 失敗！(at:Dish.swift)")
+            print("解碼 dictionary 失敗！(at:Alchemy.swift)")
             return nil
         }
         
