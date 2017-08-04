@@ -22,7 +22,9 @@ class ViewController: UIViewController {
     private var dishs:[Dish] = [Dish]()
     private var alchemies:[Alchemy] = [Alchemy]()
     
-    var reachability:Reachability? = Reachability.networkReachabilityForInternetConnection()
+    private var reachability:Reachability? = Reachability.networkReachabilityForInternetConnection()
+    private let timeTool:TimeTools = TimeTools()
+    private let timeLimit:Double = 60*60
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,8 @@ class ViewController: UIViewController {
     
     @IBAction func cookingPageButtonPressed(_ sender: UIButton) {
         print("讀取資料結束後前往料理頁面")
-        loadDishs()
+//        loadDishs()
+        loadData(type: .dish)
     }
     
     @IBAction func AlchemyPageButtonPressed(_ sender: UIButton) {
@@ -130,65 +133,29 @@ class ViewController: UIViewController {
         switch type {
         case DataType.alchemy:
             if let unarchiveDatas = NSKeyedUnarchiver.unarchiveObject(withFile: Alchemy.ArchiveURL.path) as? [Alchemy] {
-                print("取得 煉金 離線資料，前往下一頁")
-                self.alchemies = unarchiveDatas
-                self.performSegue(withIdentifier: "showAlchemyPage", sender: self)
-            }else {
-                if (reachability?.isReachable)! {
-                    print("Firebase 連線中")
-                    // 為了安全獲得 Firebase 的資料，先幫使用者進行匿名註冊與登入
-                    Auth.auth().signInAnonymously { (user, error) in
-                        if let error = error {
-                            let loginErrorAlert:UIAlertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
-                            let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                            loginErrorAlert.addAction(okAction)
-                            
-                            self.present(loginErrorAlert, animated: true, completion: nil)
-                            return
-                        }
-                        
-                        self.fetchData(nodeName: "煉金")
-                    }
+                print("檢查上次更新時間，沒有超過限制的話再取得 煉金 離線資料，前往下一頁")
+                if timeTool.isTimeOver(limit: timeLimit) {
+                    print("超過限制時間，重新連線至 Firebase 取得 煉金 資料")
+                    getDataFromFirebase(type: .alchemy)
                 }else {
-                    print("網路狀態不良，顯示警告")
-                    let networkErrorAlert:UIAlertController = UIAlertController(title: "網路錯誤", message: "請檢查是否有連接網路，然後再試一次", preferredStyle: .alert)
-                    let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                    networkErrorAlert.addAction(okAction)
-                    
-                    self.present(networkErrorAlert, animated: true, completion: nil)
-                    return
+                    self.alchemies = unarchiveDatas
+                    self.performSegue(withIdentifier: "showAlchemyPage", sender: self)
                 }
+            }else {
+                getDataFromFirebase(type: .alchemy)
             }
         case .dish:
             if let unarchiveDatas = NSKeyedUnarchiver.unarchiveObject(withFile: Dish.ArchiveURL.path) as? [Dish] {
                 print("取得料理離線資料，前往下一頁")
-                self.dishs = unarchiveDatas
-                self.performSegue(withIdentifier: "showCookingPage", sender: self)
-            }else {
-                if (reachability?.isReachable)! {
-                    print("Firebase 連線中")
-                    // 為了安全獲得 Firebase 的資料，先幫使用者進行匿名註冊與登入
-                    Auth.auth().signInAnonymously { (user, error) in
-                        if let error = error {
-                            let loginErrorAlert:UIAlertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
-                            let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                            loginErrorAlert.addAction(okAction)
-                            
-                            self.present(loginErrorAlert, animated: true, completion: nil)
-                            return
-                        }
-                        
-                        self.fetchData(nodeName: "料理")
-                    }
+                if timeTool.isTimeOver(limit: timeLimit) {
+                    print("超過限制時間，重新連線至 Firebase 取得 料理 資料")
+                    getDataFromFirebase(type: .dish)
                 }else {
-                    print("網路狀態不良，顯示警告")
-                    let networkErrorAlert:UIAlertController = UIAlertController(title: "網路錯誤", message: "請檢查是否有連接網路，然後再試一次", preferredStyle: .alert)
-                    let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                    networkErrorAlert.addAction(okAction)
-                    
-                    self.present(networkErrorAlert, animated: true, completion: nil)
-                    return
+                    self.dishs = unarchiveDatas
+                    self.performSegue(withIdentifier: "showCookingPage", sender: self)
                 }
+            }else {
+                getDataFromFirebase(type: .dish)
             }
         }
     }
@@ -230,6 +197,42 @@ class ViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    private func getDataFromFirebase(type:DataType) {
+        var nodeName:String = ""
+        
+        switch type {
+        case .dish:
+            nodeName = "料理"
+        case .alchemy:
+            nodeName = "煉金"
+        }
+        
+        if (reachability?.isReachable)! {
+            print("Firebase 連線中")
+            // 為了安全獲得 Firebase 的資料，先幫使用者進行匿名註冊與登入
+            Auth.auth().signInAnonymously { (user, error) in
+                if let error = error {
+                    let loginErrorAlert:UIAlertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                    let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                    loginErrorAlert.addAction(okAction)
+                    
+                    self.present(loginErrorAlert, animated: true, completion: nil)
+                    return
+                }
+                
+                self.fetchData(nodeName:nodeName)
+            }
+        }else {
+            print("網路狀態不良，顯示警告")
+            let networkErrorAlert:UIAlertController = UIAlertController(title: "網路錯誤", message: "請檢查是否有連接網路，然後再試一次", preferredStyle: .alert)
+            let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            networkErrorAlert.addAction(okAction)
+            
+            self.present(networkErrorAlert, animated: true, completion: nil)
+            return
+        }
     }
 }
 
