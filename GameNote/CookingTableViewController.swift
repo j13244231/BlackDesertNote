@@ -8,15 +8,29 @@
 
 import UIKit
 
-class CookingTableViewController: UITableViewController {
+class CookingTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+    
+    @IBOutlet var cookingTableView: UITableView!
+    private var searchController:UISearchController!
+    
     
     private var allDishes:[Dish] = [Dish]()
+    private var filteredDishes:[Dish] = [Dish]()
+    private var shouldShowSearchResult:Bool = false
+    private var isPrepareToNextPage:Bool = false
     private var selectIndex:Int = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        shouldShowSearchResult = false
+        isPrepareToNextPage = false
+        
+        cookingTableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("測試：\(allDishes[0].dishName)")
+        configureSearchController()
     }
     
     func setDish(dishes:[Dish]) {
@@ -35,12 +49,26 @@ class CookingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allDishes.count
+        var dataCount:Int = 0
+        
+        if shouldShowSearchResult {
+            dataCount = filteredDishes.count
+        }else {
+            dataCount = allDishes.count
+        }
+        
+        return dataCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CookingTableViewCell", for: indexPath) as? CookingTableViewCell {
-            cell.setCell(withDish: allDishes[indexPath.row])
+            
+            if shouldShowSearchResult {
+                cell.setCell(withDish: filteredDishes[indexPath.row])
+            }else {
+                cell.setCell(withDish: allDishes[indexPath.row])
+            }
+            
             return cell
         }else {
             print("觸發 return CookingTableViewCell()")
@@ -55,7 +83,82 @@ class CookingTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dishDetailViewController:CookingDetailViewController = segue.destination as! CookingDetailViewController
-        dishDetailViewController.setDish(dish: allDishes[selectIndex])
+        
+        isPrepareToNextPage = true
+        print("prepare SearchResult:\(shouldShowSearchResult)")
+        if shouldShowSearchResult {
+            dishDetailViewController.setDish(dish: filteredDishes[selectIndex])
+        }else {
+            dishDetailViewController.setDish(dish: allDishes[selectIndex])
+        }
+        
+        searchController.isActive = false
+    }
+    
+    //MARK: Search Controller Method
+    
+    private func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false //指定再輸入搜尋列時要不要讓畫面暗下來以凸顯搜尋列
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        searchController.searchBar.placeholder = "料理名稱"
+        searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
+        
+        cookingTableView.tableHeaderView = searchController.searchBar
+    }
+    
+    //MARK: Search Bar Delegate
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("BarTextDidEndEditing")
+        shouldShowSearchResult = true
+        cookingTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("CancelButtonClicked")
+        shouldShowSearchResult = false
+        cookingTableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("BarSearchButtonClicked")
+        
+        if !shouldShowSearchResult {
+            shouldShowSearchResult = true
+            cookingTableView.reloadData()
+        }
+        
+        searchController.searchBar.resignFirstResponder()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchString = searchController.searchBar.text else {
+            return
+        }
+        
+        if searchString != "" {
+            filteredDishes = allDishes.filter({ (dish) -> Bool in
+                let dishNameText:String = dish.dishName
+                return ((dishNameText.range(of: searchString) != nil))
+            })
+        }
+        
+        // searchString 只要沒有輸入文字就是 "" ，這會導致搜尋結果為0，所以這邊改成顯示全部資料
+        if searchString == "" {
+            if !isPrepareToNextPage {
+                shouldShowSearchResult = false
+                cookingTableView.reloadData()
+            }
+        }
+        
+        print("filteredDishes:\(filteredDishes.count)")
+        
+        print("should:\(shouldShowSearchResult)")
     }
 
     /*

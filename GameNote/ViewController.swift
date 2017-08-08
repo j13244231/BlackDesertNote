@@ -33,13 +33,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cookingPageButtonPressed(_ sender: UIButton) {
-        print("讀取資料結束後前往料理頁面")
-//        loadDishs()
         loadData(type: .dish)
     }
     
     @IBAction func AlchemyPageButtonPressed(_ sender: UIButton) {
-        print("讀取資料結束後前往煉金頁面")
         loadData(type: .alchemy)
     }
     
@@ -85,55 +82,12 @@ class ViewController: UIViewController {
             isSaveSuccessed = NSKeyedArchiver.archiveRootObject(alchemies, toFile: Alchemy.ArchiveURL.path)
             print("儲存煉金資料狀態：\(isSaveSuccessed)")
         }
-//        let isDishSaveSuccessed:Bool = NSKeyedArchiver.archiveRootObject(dishs, toFile: Dish.ArchiveURL.path)
-//        
-//        if isDishSaveSuccessed {
-//            print("儲存 料理資料 成功！")
-//        }else {
-//            print("儲存 料理資料 失敗！")
-//        }
-    }
-    
-    private func loadDishs() {
-        if let unarchiveDishs = NSKeyedUnarchiver.unarchiveObject(withFile: Dish.ArchiveURL.path) as? [Dish] {
-            print("取得料理離線資料，前往下一頁")
-            self.dishs = unarchiveDishs
-            self.performSegue(withIdentifier: "showCookingPage", sender: self)
-        }else {
-            if (reachability?.isReachable)! {
-                print("Firebase 連線中")
-                // 為了安全獲得 Firebase 的資料，先幫使用者進行匿名註冊與登入
-                Auth.auth().signInAnonymously { (user, error) in
-                    if let error = error {
-                        let loginErrorAlert:UIAlertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
-                        let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                        loginErrorAlert.addAction(okAction)
-                        
-                        self.present(loginErrorAlert, animated: true, completion: nil)
-                        return
-                    }
-                    
-                    self.fetchData(nodeName: "料理")
-                }
-            }else {
-                print("網路狀態不良，顯示警告")
-                let networkErrorAlert:UIAlertController = UIAlertController(title: "網路錯誤", message: "請檢查是否有連接網路，然後再試一次", preferredStyle: .alert)
-                let okAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                networkErrorAlert.addAction(okAction)
-                
-                self.present(networkErrorAlert, animated: true, completion: nil)
-                return
-            }
-            
-        }
-//        return NSKeyedUnarchiver.unarchiveObject(withFile: Dish.ArchiveURL.path) as? [Dish]
     }
     
     private func loadData(type:DataType) {
         switch type {
         case DataType.alchemy:
             if let unarchiveDatas = NSKeyedUnarchiver.unarchiveObject(withFile: Alchemy.ArchiveURL.path) as? [Alchemy] {
-                print("檢查上次更新時間，沒有超過限制的話再取得 煉金 離線資料，前往下一頁")
                 if timeTool.isTimeOver(limit: timeLimit) {
                     print("超過限制時間，重新連線至 Firebase 取得 煉金 資料")
                     getDataFromFirebase(type: .alchemy)
@@ -146,7 +100,6 @@ class ViewController: UIViewController {
             }
         case .dish:
             if let unarchiveDatas = NSKeyedUnarchiver.unarchiveObject(withFile: Dish.ArchiveURL.path) as? [Dish] {
-                print("取得料理離線資料，前往下一頁")
                 if timeTool.isTimeOver(limit: timeLimit) {
                     print("超過限制時間，重新連線至 Firebase 取得 料理 資料")
                     getDataFromFirebase(type: .dish)
@@ -165,6 +118,7 @@ class ViewController: UIViewController {
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 // 先清空資料陣列，否則進入下一頁會重複顯示資料
                 self.dishs = []
+                self.alchemies = []
                 
                 for snap in snapshots {
                     if let valueDictionary = snap.value as? Dictionary<String, AnyObject> {

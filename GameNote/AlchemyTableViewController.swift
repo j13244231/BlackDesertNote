@@ -8,16 +8,29 @@
 
 import UIKit
 
-class AlchemyTableViewController: UITableViewController {
+class AlchemyTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+    
+    @IBOutlet var alchemyTableView: UITableView!
+    private var searchController:UISearchController!
     
     private var allAlchemies:[Alchemy] = [Alchemy]()
+    private var filteredAlchemies:[Alchemy] = [Alchemy]()
+    private var shouldShowSearchResult:Bool = false
+    private var isPrepareToNextPage:Bool = false
     private var selectIndex:Int = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        shouldShowSearchResult = false
+        isPrepareToNextPage = false
+        
+        alchemyTableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "煉金"
 
-        print("煉金頁面測試：\(allAlchemies[0].name)")
+        configureSearchController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,13 +49,24 @@ class AlchemyTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return allAlchemies.count
+        if shouldShowSearchResult {
+            return filteredAlchemies.count
+        }else {
+            return allAlchemies.count
+        }
+        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AlchemyTableViewCell", for: indexPath) as? AlchemyTableViewCell {
-            cell.setCell(alchemy: allAlchemies[indexPath.row])
+            
+            if shouldShowSearchResult {
+                
+                cell.setCell(alchemy: filteredAlchemies[indexPath.row])
+            }else {
+                cell.setCell(alchemy: allAlchemies[indexPath.row])
+            }
+            
             return cell
         }else {
             print("觸發 AlchemyTableViewCell() (at AlchemyTableViewController.swift)")
@@ -51,13 +75,77 @@ class AlchemyTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchController.isActive = false
+        
         selectIndex = indexPath.row
         self.performSegue(withIdentifier: "showAlchemyDetail", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let alchemyDetailViewController:AlchemyDetailViewController = segue.destination as! AlchemyDetailViewController
-        alchemyDetailViewController.setAlchemyData(alchemy: allAlchemies[selectIndex])
+        
+        if shouldShowSearchResult {
+            alchemyDetailViewController.setAlchemyData(alchemy: filteredAlchemies[selectIndex])
+        }else {
+            alchemyDetailViewController.setAlchemyData(alchemy: allAlchemies[selectIndex])
+        }
+    }
+    
+    //MARK: Private Method
+    
+    private func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        searchController.searchBar.placeholder = "製品名稱"
+        searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
+        
+        alchemyTableView.tableHeaderView = searchController.searchBar
+    }
+    
+    //MARK: Search Bar Delegate
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        shouldShowSearchResult = true
+        alchemyTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        shouldShowSearchResult = false
+        alchemyTableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if !shouldShowSearchResult {
+            shouldShowSearchResult = true
+            alchemyTableView.reloadData()
+        }
+        
+        searchController.searchBar.resignFirstResponder()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchString = searchController.searchBar.text else {
+            return
+        }
+        
+        if searchString != "" {
+            filteredAlchemies = allAlchemies.filter({ (alchemy) -> Bool in
+                let nameText:String = alchemy.name
+                return (nameText.range(of: searchString) != nil)
+            })
+        }
+        
+        if searchString == "" {
+            if !isPrepareToNextPage {
+                shouldShowSearchResult = false
+                alchemyTableView.reloadData()
+            }
+        }
     }
     
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
