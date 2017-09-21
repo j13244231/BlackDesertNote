@@ -42,13 +42,13 @@ class TimeTools: NSObject {
         
         if let lastSavedDateString = userDefault.object(forKey: savedTimeKey) as? String {
             let lastSavedDate:Date = dateFormatter.date(from: lastSavedDateString)!
-            print("從上次更新時間距今已經:\(Date().timeIntervalSince(lastSavedDate))秒")
             result = Date().timeIntervalSince(lastSavedDate) > limitTimeInterval
+            print("從上次更新時間距今已經:\(Date().timeIntervalSince(lastSavedDate))秒，更新？ > \(result)")
         }else {
-            saveNowToUserDefault()
             result = false
         }
         
+        saveNowToUserDefault()
         return result
     }
     

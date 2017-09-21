@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zQW-Kb-3uZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zQW-Kb-3uZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,10 +78,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名稱：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdW-kf-xeJ">
-                                            <rect key="frame" x="8" y="8" width="231" height="61.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="名稱：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdW-kf-xeJ">
+                                            <rect key="frame" x="8" y="8" width="231" height="62"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="231" id="dzb-99-c0h"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="231" id="dzb-99-c0h"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
@@ -91,6 +91,7 @@
                                             <rect key="frame" x="249" y="8" width="116" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Xmj-O3-Qiv"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="aVs-kL-Z8l"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -144,17 +145,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名稱：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEj-jc-9AX">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名稱：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEj-jc-9AX">
                                             <rect key="frame" x="8" y="8" width="231" height="54"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="231" id="ZOA-9q-Nf2"/>
-                                                <constraint firstAttribute="height" constant="54" id="qTe-rg-pLX"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="231" id="ZOA-9q-Nf2"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="難度" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-nc-T4k">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="難度" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-nc-T4k">
                                             <rect key="frame" x="249" y="8" width="108" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -162,9 +162,9 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xEj-jc-9AX" firstAttribute="top" secondItem="fD5-nc-T4k" secondAttribute="top" id="4nO-50-yRB"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="fD5-nc-T4k" secondAttribute="trailing" constant="10" id="9Nx-Qe-OqB"/>
                                         <constraint firstItem="xEj-jc-9AX" firstAttribute="leading" secondItem="xkd-9x-qDc" secondAttribute="leadingMargin" id="TG4-L5-yZK"/>
+                                        <constraint firstItem="fD5-nc-T4k" firstAttribute="top" secondItem="xEj-jc-9AX" secondAttribute="top" id="frG-ZD-qyp"/>
                                         <constraint firstAttribute="bottom" secondItem="xEj-jc-9AX" secondAttribute="bottom" constant="8" id="fsP-1A-vN1"/>
                                         <constraint firstItem="fD5-nc-T4k" firstAttribute="leading" secondItem="xEj-jc-9AX" secondAttribute="trailing" constant="10" id="nW2-lT-ZNI"/>
                                         <constraint firstItem="xEj-jc-9AX" firstAttribute="top" secondItem="xkd-9x-qDc" secondAttribute="top" constant="8" id="pM7-vb-fji"/>
@@ -295,7 +295,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zQW-Kb-3uZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gz7-lI-r8k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -374,6 +374,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RMy-tl-6dg" secondAttribute="trailingMargin" id="6nt-ts-Rfe"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="RMy-tl-6dg" secondAttribute="bottom" constant="3.5" id="AEw-fe-Xhs"/>
                                                 <constraint firstItem="RMy-tl-6dg" firstAttribute="leading" secondItem="FEM-G2-Ryn" secondAttribute="leadingMargin" id="GAh-1x-e8d"/>
                                                 <constraint firstItem="RMy-tl-6dg" firstAttribute="top" secondItem="FEM-G2-Ryn" secondAttribute="topMargin" constant="3" id="iwq-kn-Tio"/>

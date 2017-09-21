@@ -24,7 +24,7 @@ class AlchemyDetailViewController: UIViewController, UITableViewDelegate, UITabl
         materialTableView.delegate = self
 
         let doneAccessoryView:DoneAccessoryView = DoneAccessoryView(frame: CGRect(x: 0.0, y: 0.0, width: 320.0, height: 30.0))
-        doneAccessoryView.backgroundColor = UIColor(colorLiteralRed: 210.0/255.0, green: 213.0/255.0, blue: 219.0/255.0, alpha: 1.0)
+        doneAccessoryView.backgroundColor = UIColor(red: 210.0/255.0, green: 213.0/255.0, blue: 219.0/255.0, alpha: 1.0)
         doneAccessoryView.doneDelegate = self
         
         amountTextField.delegate = self

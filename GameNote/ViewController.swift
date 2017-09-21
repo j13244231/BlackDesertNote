@@ -63,6 +63,7 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         Database.database().reference().child("料理").removeAllObservers()
+        Database.database().reference().child("煉金").removeAllObservers()
     }
 
     override func didReceiveMemoryWarning() {
